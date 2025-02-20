@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Dashboard</title>
+    <style>
+        /* Resetting default browser margins */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        .sidebar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .sidebar ul li a:hover {
+            color: #ccc;
+        }
+
+        /* Main content styling */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #fff;
+            overflow-y: auto;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .header .search input {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .header .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .header .user-info img {
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            margin-right: 10px;
+        }
+
+        /* Post section */
+        .posts {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .post {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .post .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .post .user-info img {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .post .user-info .username {
+            font-weight: bold;
+        }
+
+        .post .content {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .post .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        .post .actions button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .post .actions button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">
+            SocialHub
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Notifications</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="search">
+                <input type="text" id="search" placeholder="Search...">
+            </div>
+            <div class="user-info">
+                <img src="https://via.placeholder.com/35" alt="User">
+                <span>John Doe</span>
+            </div>
+        </div>
+
+        <div class="posts">
+            <!-- Post 1 -->
+            <div class="post">
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/30" alt="User">
+                    <span class="username">Jane Smith</span>
+                </div>
+                <div class="content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia bibendum.
+                </div>
+                <div class="actions">
+                    <button onclick="likePost(this)">Like</button>
+                    <button>Comment</button>
+                </div>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="post">
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/30" alt="User">
+                    <span class="username">Alex Brown</span>
+                </div>
+                <div class="content">
+                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                </div>
+                <div class="actions">
+                    <button onclick="likePost(this)">Like</button>
+                    <button>Comment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle like button functionality
+        function likePost(button) {
+            if (button.innerHTML === 'Like') {
+                button.innerHTML = 'Liked';
+                button.style.backgroundColor = '#3e8e41';
+            } else {
+                button.innerHTML = 'Like';
+                button.style.backgroundColor = '#4CAF50';
+            }
+        }
+    </script>
+    
+</body>
+</html>

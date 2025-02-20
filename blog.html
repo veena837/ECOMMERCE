@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Blog</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+
+        /* Main content styles */
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .blog-post {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-post h2 {
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .blog-post p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .btn-comment {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .btn-comment:hover {
+            background-color: #45a049;
+        }
+
+        .comments {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .comment {
+            background-color: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .comment p {
+            margin: 0;
+        }
+
+        .footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Simple Blog</h1>
+    </header>
+
+    <div class="container">
+        <!-- Blog Post 1 -->
+        <div class="blog-post">
+            <h2>Title of Blog Post #1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Curabitur vehicula dui id felis bibendum, at efficitur nisi tempus.</p>
+            <button class="btn-comment" onclick="toggleComments('comments1')">View Comments</button>
+
+            <div id="comments1" class="comments" style="display:none;">
+                <div class="comment">
+                    <p><strong>John Doe:</strong> This is an amazing post! Keep it up.</p>
+                </div>
+                <div class="comment">
+                    <p><strong>Jane Smith:</strong> I love the insights shared here. Thanks for writing!</p>
+                </div>
+                <input type="text" id="commentInput1" placeholder="Add a comment...">
+                <button onclick="addComment('comments1', 'commentInput1')">Post Comment</button>
+            </div>
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="blog-post">
+            <h2>Title of Blog Post #2</h2>
+            <p>Suspendisse potenti. Curabitur aliquet, odio et convallis euismod, nunc dolor cursus ante, a luctus lorem augue ut arcu.</p>
+            <button class="btn-comment" onclick="toggleComments('comments2')">View Comments</button>
+
+            <div id="comments2" class="comments" style="display:none;">
+                <div class="comment">
+                    <p><strong>Alice Cooper:</strong> Very informative! Thanks for sharing.</p>
+                </div>
+                <div class="comment">
+                    <p><strong>Bob Marley:</strong> Great read, I will be sharing this with my friends.</p>
+                </div>
+                <input type="text" id="commentInput2" placeholder="Add a comment...">
+                <button onclick="addComment('comments2', 'commentInput2')">Post Comment</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 My Simple Blog</p>
+    </footer>
+
+    <script>
+        // Toggle the comments visibility for each post
+        function toggleComments(id) {
+            const comments = document.getElementById(id);
+            if (comments.style.display === 'none' || comments.style.display === '') {
+                comments.style.display = 'block';
+            } else {
+                comments.style.display = 'none';
+            }
+        }
+
+        // Add a new comment to the comment section
+        function addComment(commentSectionId, inputId) {
+            const commentInput = document.getElementById(inputId);
+            const commentText = commentInput.value.trim();
+            
+            if (commentText) {
+                const commentSection = document.getElementById(commentSectionId);
+                const newComment = document.createElement('div');
+                newComment.classList.add('comment');
+                newComment.innerHTML = `<p><strong>You:</strong> ${commentText}</p>`;
+                commentSection.appendChild(newComment);
+                commentInput.value = '';  // Clear the input field
+            }
+        }
+    </script>
+</body>
+</html>
