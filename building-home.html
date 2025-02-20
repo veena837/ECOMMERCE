@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building Home</title>
+  <style>
+    /* CSS styles for the building */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .building {
+      width: 300px;
+      height: 400px;
+      background-color: #2d87f0;
+      position: relative;
+      border-radius: 10px 10px 0 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Roof of the building */
+    .roof {
+      width: 100%;
+      height: 60px;
+      background-color: #8b4513;
+      position: absolute;
+      top: -60px;
+      left: 0;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+
+    /* Windows */
+    .window {
+      width: 50px;
+      height: 50px;
+      background-color: #ffffff;
+      border: 2px solid #000;
+      margin: 10px;
+      display: inline-block;
+    }
+
+    /* Door of the building */
+    .door {
+      width: 100px;
+      height: 150px;
+      background-color: #5c4033;
+      position: absolute;
+      bottom: 20px;
+      left: 100px;
+      border-radius: 8px;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Window positioning */
+    .window-container {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 60px;
+      left: 20px;
+      right: 20px;
+      height: 120px;
+    }
+
+    /* Button styling */
+    .button {
+      position: absolute;
+      top: 350px;
+      left: 90px;
+      padding: 10px 20px;
+      background-color: #ff5733;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .button:hover {
+      background-color: #ff2d00;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="building">
+    <div class="roof"></div>
+    <div class="window-container">
+      <div class="window"></div>
+      <div class="window"></div>
+    </div>
+    <div class="door"></div>
+    <button class="button" onclick="changeColor()">Change Color</button>
+  </div>
+
+  <script>
+    // JavaScript function to change the building color when the button is clicked
+    function changeColor() {
+      const building = document.querySelector('.building');
+      const colors = ['#2d87f0', '#f07c2d', '#7cd2f0', '#d87cf0', '#f0d27c'];
+      const currentColor = building.style.backgroundColor;
+      let newColor;
+
+      do {
+        newColor = colors[Math.floor(Math.random() * colors.length)];
+      } while (newColor === currentColor);
+
+      building.style.backgroundColor = newColor;
+    }
+  </script>
+
+</body>
+</html>
